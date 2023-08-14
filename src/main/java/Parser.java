@@ -30,9 +30,8 @@ public String splitAndListArray(String[] input){
     StringBuilder splitWords = new StringBuilder();
 
     for(String item : input){
-        String[] splitArray = item.split("[^A-Za-z0-9.:/]");
-        splitWords.append(arrayToString(splitArray))
-                .append("\n");
+        String[] splitArray = item.split("type");
+        splitWords.append(arrayToString(splitArray));
     }
     return splitWords.toString();
 }
