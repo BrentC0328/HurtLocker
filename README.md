@@ -12,7 +12,7 @@ Just like Json , JerkSON is supposed to be a Key Value Pair data store.
 
 In Json Key and Value are seperated as such (Key:Value) where the colon is the seperator.
 
-In JerkSON Key and Value could be seperated by using a any of the following (:, @, ^, *, %) and there is no guarntee that there isn't another hidden symbol seperator. (There could be another one, or maybe there isn't , you tell me)... lol
+In JerkSON Key and Value could be seperated by using a any of the following (:, @, ^, *, %) and there is no guarantee that there isn't another hidden symbol seperator. (There could be another one, or maybe there isn't , you tell me)... lol
 
 In Json Key and Value pairs are seperated by a ',' in JerkSON its '##'
 
