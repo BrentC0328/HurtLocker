@@ -22,8 +22,24 @@ public String arrayToString(String[] input){
         split.append(input[i])
                 .append("\n");
     }
-    System.out.println(split);
+//    System.out.println(split);
     return split.toString();
 }
+
+public String splitAndListArray(String[] input){
+    StringBuilder splitWords = new StringBuilder();
+
+    for(String item : input){
+        String[] splitArray = item.split("[^A-Za-z0-9.:/]");
+        splitWords.append(arrayToString(splitArray))
+                .append("\n");
+    }
+    return splitWords.toString();
+}
+
+
+
+
+
 
 }

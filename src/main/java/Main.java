@@ -12,9 +12,16 @@ public class Main {
 
     public static void main(String[] args) throws Exception{
         Parser parser = new Parser();
+
         String output = (new Main()).readRawDataToString();
         String[] outputArray = output.split("##");
-        parser.arrayToString(outputArray);
+
+        String splitList = parser.splitAndListArray(outputArray);
+
+        System.out.println(splitList);
+
+        //I want to remove type and expiration date
+        //
 
 
     }
