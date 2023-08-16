@@ -26,6 +26,9 @@ public String arrayToString(String[] input){
     return split.toString();
 }
 
+public boolean isEven(int i){
+    return i % 2 == 0;
+}
 public String splitAndListArray(String[] input){
     StringBuilder splitWords = new StringBuilder();
 
@@ -34,6 +37,18 @@ public String splitAndListArray(String[] input){
         splitWords.append(arrayToString(splitArray));
     }
     return splitWords.toString();
+}
+
+public String keepEvenHalfOfArrayIndexes(String[] input){
+    StringBuilder evenHalf = new StringBuilder();
+
+    for (int i = 0; i < input.length; i++){
+        if (isEven(i)){
+            evenHalf.append(input[i])
+                    .append("\n");
+        }
+    }
+    return evenHalf.toString();
 }
 
 

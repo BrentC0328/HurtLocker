@@ -19,8 +19,13 @@ public class Main {
 
         String splitList = parser.splitAndListArray(outputArray);
 
-        System.out.println(splitList);
+//        System.out.println(splitList);
 
+        String[] testArray = splitList.split("\n");
+//        System.out.println(Arrays.toString(testArray));
+
+        String tempName = parser.keepEvenHalfOfArrayIndexes(testArray);
+        System.out.println(tempName);
         //naMe:Milk
         //price:3.23
         //type:Food
