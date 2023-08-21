@@ -31,15 +31,17 @@ public class Main {
 
         Integer errors = parser.giveMeTheItemErrors(tempName);
         Map<String, List<Double>> itemsMap = parser.giveMeItemsMap(tempName); // Somewhere here it messes up the list and removes items.
-        System.out.println(itemsMap);
-        System.out.println(errors);
-//
-        for(Map.Entry<String, List<Double>> entry : itemsMap.entrySet()) {
-            System.out.println("Item: " + entry.getKey() + ", Price: " + entry.getValue());
+//        System.out.println(itemsMap);
+//        System.out.println(errors);
+////
+//        for(Map.Entry<String, List<Double>> entry : itemsMap.entrySet()) {
+//            System.out.println("Item: " + entry.getKey() + ", Price: " + entry.getValue());
 //        String result = parser.formatTheListWithStringBuilder(itemsMap, errors);
 //        System.out.println(result);
 
+        String result = parser.formatTheListWithStringBuilder(itemsMap, errors);
+        System.out.println(result);
         }
 }
-    }
+
 

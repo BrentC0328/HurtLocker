@@ -94,45 +94,29 @@ public class Parser {
         return errors;
     }
 
-    public String formatTheListWithStringBuilder(Map<String, Double> mapToFormat, Integer errors) {
-        Map<String, Integer> nameCount = new HashMap<>();
-        Map<String, List<Double>> pricesToName= new HashMap<>();
+    public String formatTheListWithStringBuilder(Map<String, List<Double>> mapToFormat, Integer errors) {
 
-        //First we loop through and count the occurences of each product name and price.
-        for (Map.Entry<String, Double> entry : mapToFormat.entrySet()) {
-            String itemName = entry.getKey().toLowerCase(); //you see no string manipulation here <(*_*)>
-            Double itemPrice = entry.getValue();
-
-            nameCount.put(itemName, nameCount.getOrDefault(itemName, 0) + 1);
-            //We are grabbing each price here and putting it in a price list so we can hold all the prices that one name might have associated.
-            List<Double> prices = pricesToName.computeIfAbsent(itemName, x -> new ArrayList<>());
-            prices.add(itemPrice);
-        }
-
-        //Lets build our string
         StringBuilder shoppingList = new StringBuilder();
 
-        //It's about to get a little spicy
-        for (Map.Entry<String, Integer> nameEntry : nameCount.entrySet()) {
-            String productName = nameEntry.getKey();
-            int nameSeen = nameEntry.getValue();
+        for (Map.Entry<String, List<Double>> entry : mapToFormat.entrySet()) {
+            String productName = entry.getKey();
+            List<Double> prices = entry.getValue();
+            int nameSeen = prices.size();
 
-            //format the name first
-            shoppingList.append("name:    ").append(productName).append("\t\t seen: ").append(nameSeen).append(" times\n");
+            shoppingList.append("name: ").append(productName).append("\t\t seen: ").append(nameSeen).append(" times\n");
             shoppingList.append("=============  \t =============\n");
 
+            Set<Double> uniquePrices = new HashSet<>(prices);
 
-            //Time to format our price for that item.
-            List<Double> prices = pricesToName.get(productName);
-            for (Double price : prices) {
-                shoppingList.append("Price:   ").append(price).append("\t seen: ").append(nameSeen).append(" times\n");
+            for (Double price : uniquePrices) {
+                int priceSeen = Collections.frequency(prices, price);
+                shoppingList.append("Price:   ").append(price).append("\t seen: ").append(priceSeen).append(" times\n");
             }
 
-            shoppingList.append("\n");
+            shoppingList.append("-------------\t -------------\n \n");
         }
 
         return shoppingList.toString();
-
     }
 
 
