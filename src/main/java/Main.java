@@ -17,11 +17,8 @@ public class Main {
 
         String output = (new Main()).readRawDataToString();
         String[] outputArray = output.split("##");
-//        System.out.println(Arrays.toString(outputArray));
 
         String splitList = parser.splitAndListArray(outputArray);
-
-//        System.out.println(splitList);
 
         String[] testArray = splitList.split("\n");
         System.out.println(Arrays.toString(testArray));
@@ -29,17 +26,14 @@ public class Main {
         String tempName = parser.keepEvenHalfOfArrayIndexes(testArray);
         System.out.println(tempName); //The right number of list items here
 
-        Integer errors = parser.giveMeTheItemErrors(tempName);
-        Map<String, List<Double>> itemsMap = parser.giveMeItemsMap(tempName); // Somewhere here it messes up the list and removes items.
-//        System.out.println(itemsMap);
+        Integer errors = parser.giveMeTheItemErrors(tempName);//Have the errors being counted but have not yet formatted them into the parser format method.
+        Map<String, List<Double>> itemsMap = parser.giveMeItemsMap(tempName); // Fixed, keeps full item list.
+        System.out.println(itemsMap);
 //        System.out.println(errors);
 ////
 //        for(Map.Entry<String, List<Double>> entry : itemsMap.entrySet()) {
 //            System.out.println("Item: " + entry.getKey() + ", Price: " + entry.getValue());
-//        String result = parser.formatTheListWithStringBuilder(itemsMap, errors);
-//        System.out.println(result);
-
-        String result = parser.formatTheListWithStringBuilder(itemsMap, errors);
+        String result = parser.formatTheListWithStringBuilder(itemsMap, errors); // Formats but does not account for different spelled/casing items.
         System.out.println(result);
         }
 }
